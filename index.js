@@ -1,13 +1,3 @@
-const submitButton = document.querySelector('.submit-button');
-const modalOverlay = document.querySelector('.modal-overlay');
-const closeButton = document.querySelector('.close');
-
-submitButton.addEventListener('click', function() {
-    modalOverlay.style.display = 'flex';
-});
-closeButton.addEventListener('click', function() {
-    modalOverlay.style.display = 'none';
-});
 let formCount = 1;
 document.querySelector('.add-button').addEventListener('click', () => {
     formCount++;
@@ -42,3 +32,28 @@ function createButton(form) {
     });
     return button;
 }
+function getDeclension(count) {
+    count = Math.abs(count);
+    count %= 100;
+    if (count >= 5 && count <= 20) {
+        return 'напитков';
+    }
+    count %= 10;
+    if (count === 1) {
+        return 'напиток';
+    }
+    if (count >= 2 && count <= 4) {
+        return 'напитка';
+    }
+    return 'напитков';
+}
+const submitButton = document.querySelector('.submit-button');
+const modalOverlay = document.querySelector('.modal-overlay');
+const closeButton = document.querySelector('.close');
+submitButton.addEventListener('click', function () {
+    modalOverlay.style.display = 'flex';
+    modalOverlay.querySelector('.modal p').textContent += `\nВы заказали ${formCount} ${getDeclension(formCount)}.`;
+});
+closeButton.addEventListener('click', function () {
+    modalOverlay.style.display = 'none';
+});
