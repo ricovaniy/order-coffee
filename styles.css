@@ -2,10 +2,15 @@
     border: 1px solid #eee;
     margin: 15px 0;
     padding: 15px;
+    position: relative;
 }
 
 .beverage-count {
     margin: 0 0 15px;
+}
+
+fieldset {
+    width: 18%;
 }
 
 .field {
@@ -44,6 +49,14 @@
     border: 2px solid orange;
     border-radius: 5px;
 }
+.close-form-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    cursor: pointer;
+}
+
 
 
 .modal-overlay {
@@ -74,3 +87,4 @@
     cursor: pointer;
     font-size: 20px;
 }
+
